@@ -1,0 +1,1 @@
+- Comando para instalar o ruff no ambiente de desenvolvimento: poetry add --group dev ruff
