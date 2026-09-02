@@ -32,3 +32,26 @@ def test_read_root():
     # Assert
     assert response.status_code == HTTPStatus.OK
     assert response.json() == {'message': 'Olá Mundo!'}
+
+
+def test_read_html():
+    """
+    This test has 3 times (AAA)
+    - Arrange: Set up the test client and any necessary preconditions.
+    - Act: Send a GET request to the '/html' endpoint of the FastAPI
+    application.
+    - Assert: Verify that the response status code is 200 (OK) and that the
+    response content contains the expected HTML structure.
+
+    This test sends a GET request to the '/html' endpoint and verifies that
+    the response status code is 200 (OK) and that the response content
+    contains the expected HTML structure.
+    """
+    # Arrange
+    client = TestClient(app)
+    # Act
+    response = client.get('/html')
+    # Assert
+    assert response.status_code == HTTPStatus.OK
+    assert '<h1>Welcome to FastAPI Todo!</h1>' in response.text
+    assert '<p>Olá Mundo</p>' in response.text
